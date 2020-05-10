@@ -2,6 +2,9 @@
 import React, {useState} from 'react';
 import './App.css';
 import Header from './componenets/Header/Headers.js';
+import Home from './componenets/Home/Home.js';
+import AlertComponent from './componenets/AlertComponent/AlertCompoenent.js';
+import LoginForm from './componenets/LoginForm/LoginForm.js';
 import RegistrationForm from './componenets/RegisterForm/RegisterForm.js';
 import {
   BrowserRouter as Router,
@@ -18,12 +21,18 @@ function App() {
         <Header/>
           <div className="container d-flex align-items-center flex-column">
             <Switch>
-            <Route path="/" exact={true}>
-              <RegistrationForm showError={updateErrorMessage} updateTitle={updateTitle}/>
-            </Route>
-            <Route path="/register">
-              <RegistrationForm showError={updateErrorMessage} updateTitle={updateTitle}/>
-            </Route>
+              <Route path="/" exact={true}>
+                <RegistrationForm showError={updateErrorMessage} updateTitle={updateTitle}/>
+              </Route>
+              <Route path="/register">
+                <RegistrationForm showError={updateErrorMessage} updateTitle={updateTitle}/>
+              </Route>
+              <Route path="/login">
+                <LoginForm showError={updateErrorMessage} updateTitle={updateTitle}/>
+              </Route>
+              <Route path="/home">
+                <Home/>
+              </Route>
             </Switch>
         </div>
     </div>

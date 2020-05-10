@@ -32,11 +32,11 @@ function RegisterForm(props) {
     }
     const redirectToHome = () => {
         props.updateTitle('Home')
-        // props.history.push('/home');
+        props.history.push('/home');
     }
     const redirectToLogin = () => {
         props.updateTitle('Login')
-        // props.history.push('/login'); 
+        props.history.push('/login'); 
     }
     const sendDetailsToServer = (error) => {
         if(state.email.length && state.password.length) {
@@ -47,9 +47,9 @@ function RegisterForm(props) {
                 "last_name": state.last_name,
                 "password": state.password,
             }
-            console.log('BASE URL', API_BASE_URL)
             axios.post(API_BASE_URL + 'register', payload)
                 .then((res) => {
+                    console.log('BASE URL', res.data)
                     if(res.data.code === 200) {
                         console.log('success')
                         setState(pervState => ({
@@ -142,4 +142,4 @@ function RegisterForm(props) {
     );
 };
 
-export default RegisterForm;
+export default withRouter(RegisterForm);
